@@ -8,11 +8,11 @@
 - [x] Saved title persists across page reloads
 
 ## US-08 — Filter Todos by Status (verify / enhance if needed)
-- [ ] Footer filter buttons: All | Active | Completed
-- [ ] "Active" shows only incomplete todos
-- [ ] "Completed" shows only completed todos
-- [ ] "All" shows all todos
-- [ ] Active filter button is visually highlighted
+- [x] Footer filter buttons: All | Active | Completed
+- [x] "Active" shows only incomplete todos
+- [x] "Completed" shows only completed todos
+- [x] "All" shows all todos
+- [x] Active filter button is visually highlighted
 
 ## US-09 — Search Todos
 - [ ] Search input field present in the UI
