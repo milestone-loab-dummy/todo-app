@@ -19,6 +19,7 @@ export function TodoItem({
   const [editing, setEditing] = useState(false);
   const [editValue, setEditValue] = useState(todo.title);
   const inputRef = useRef<HTMLInputElement>(null);
+  const cancelledRef = useRef(false);
   const isPending = pendingIds.has(todo.id);
 
   useEffect(() => {
@@ -29,16 +30,19 @@ export function TodoItem({
   }, [editing]);
 
   function startEdit() {
+    cancelledRef.current = false;
     setEditValue(todo.title);
     setEditing(true);
   }
 
   function cancelEdit() {
+    cancelledRef.current = true;
     setEditing(false);
     setEditValue(todo.title);
   }
 
   async function commitEdit() {
+    if (cancelledRef.current) return;
     const trimmed = editValue.trim();
     if (!trimmed) {
       // Empty title — cancel edit
