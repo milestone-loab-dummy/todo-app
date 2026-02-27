@@ -6,6 +6,8 @@ import TodoItem from "./TodoItem";
 interface Props {
   todos: Todo[];
   loading: boolean;
+  hasQuery: boolean;
+  isMutating: boolean;
   onToggle: (id: number, completed: boolean) => void;
   onEdit: (id: number, title: string) => void;
   onDelete: (id: number) => void;
@@ -20,10 +22,10 @@ function Skeleton() {
   );
 }
 
-export default function TodoList({ todos, loading, onToggle, onEdit, onDelete }: Props) {
+export default function TodoList({ todos, loading, hasQuery, isMutating, onToggle, onEdit, onDelete }: Props) {
   if (loading) {
     return (
-      <ul className="space-y-2">
+      <ul className="space-y-2" aria-label="Loading todos" aria-busy="true">
         {[1, 2, 3].map((i) => <Skeleton key={i} />)}
       </ul>
     );
@@ -31,21 +33,26 @@ export default function TodoList({ todos, loading, onToggle, onEdit, onDelete }:
 
   if (todos.length === 0) {
     return (
-      <div className="text-center py-12 text-gray-400">
+      <div className="text-center py-12 text-gray-400" role="status">
         <svg className="mx-auto w-12 h-12 mb-3 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
-        <p className="text-sm">No todos yet. Add one above!</p>
+        {hasQuery ? (
+          <p className="text-sm">No todos match your search.</p>
+        ) : (
+          <p className="text-sm">No todos yet. Add one above!</p>
+        )}
       </div>
     );
   }
 
   return (
-    <ul className="space-y-2">
+    <ul className="space-y-2" aria-label="Todo list">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}
+          isMutating={isMutating}
           onToggle={onToggle}
           onEdit={onEdit}
           onDelete={onDelete}

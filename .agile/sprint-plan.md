@@ -5,48 +5,51 @@
 
 ---
 
-## Sprint 1 — "It Works" (Must Have, 12 SP)
+## Sprint 1 — "It Works" (Must Have, 12 SP) ✅ DONE
 
 **Sprint Goal**: A user can add, list, complete, edit, and delete todos through a running UI connected to a real backend with a persistent database.
 
-| Story | Title                        | Points |
-|-------|------------------------------|--------|
-| US-01 | Go Backend Scaffold          | 2      |
-| US-02 | React + TS Frontend Scaffold | 1      |
-| US-03 | Create a Todo                | 3      |
-| US-04 | List All Todos               | 2      |
-| US-05 | Complete / Uncomplete a Todo | 2      |
-| US-07 | Delete a Todo                | 2      |
-|       | **Sprint 1 Total**           | **12** |
+| Story | Title                        | Points | Status |
+|-------|------------------------------|--------|--------|
+| US-01 | Go Backend Scaffold          | 2      | Done   |
+| US-02 | React + TS Frontend Scaffold | 1      | Done   |
+| US-03 | Create a Todo                | 3      | Done   |
+| US-04 | List All Todos               | 2      | Done   |
+| US-05 | Complete / Uncomplete a Todo | 2      | Done   |
+| US-06 | Edit a Todo Title (bonus)    | 3      | Done   |
+| US-07 | Delete a Todo                | 2      | Done   |
+| US-08 | Filter Todos by Status (bonus)| 2     | Done   |
+| US-11 | Loading & Error States (partial bonus) | 3 | Done |
+|       | **Sprint 1 Total**           | **20** |        |
 
 ---
 
-## Sprint 2 — "It's Useful" (Core UX + Edit, 10 SP)
+## Sprint 2 — "It's Useful" (Core UX + Edit, 10 SP) ✅ DONE
 
 **Sprint Goal**: The app is complete enough for daily use — edit, filter, search, and bulk actions all work.
 
-| Story | Title                        | Points |
-|-------|------------------------------|--------|
-| US-06 | Edit a Todo Title            | 3      |
-| US-08 | Filter Todos by Status       | 2      |
-| US-09 | Search Todos                 | 2      |
-| US-10 | Bulk Actions                 | 3      |
-|       | **Sprint 2 Total**           | **10** |
+| Story | Title                        | Points | Status |
+|-------|------------------------------|--------|--------|
+| US-06 | Edit a Todo Title            | 3      | Done (Sprint 1) |
+| US-08 | Filter Todos by Status       | 2      | Done (Sprint 1) |
+| US-09 | Search Todos                 | 2      | Done   |
+| US-10 | Bulk Actions                 | 3      | Done   |
+|       | **Sprint 2 Total**           | **10** |        |
 
 ---
 
-## Sprint 3 — "It's Delightful" (Polish + Quality, 11 SP)
+## Sprint 3 — "It's Delightful" (Polish + Quality, 11 SP) ✅ DONE
 
 **Sprint Goal**: The app is polished, accessible, mobile-friendly, and the backend is production-quality.
 
-| Story | Title                                  | Points |
-|-------|----------------------------------------|--------|
-| US-11 | Loading & Error States                 | 3      |
-| US-12 | Keyboard Accessibility                 | 2      |
-| US-13 | Mobile Responsive Layout               | 2      |
-| US-14 | Input Validation & Error Responses     | 2      |
-| US-15 | Structured Logging & Health Check      | 2      |
-|       | **Sprint 3 Total**                     | **11** |
+| Story | Title                                  | Points | Status |
+|-------|----------------------------------------|--------|--------|
+| US-11 | Loading & Error States                 | 3      | Done   |
+| US-12 | Keyboard Accessibility                 | 2      | Done   |
+| US-13 | Mobile Responsive Layout               | 2      | Done   |
+| US-14 | Input Validation & Error Responses     | 2      | Done   |
+| US-15 | Structured Logging & Health Check      | 2      | Done   |
+|       | **Sprint 3 Total**                     | **11** |        |
 
 ---
 
