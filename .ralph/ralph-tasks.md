@@ -4,7 +4,7 @@
 - [x] Double-click todo title enters inline edit mode
 - [x] Enter or blur saves new title via PUT /todos/:id
 - [x] Escape cancels edit and restores original title
-- [ ] Empty title cancels edit silently (no empty todos)
+- [x] Empty title cancels edit silently (no empty todos)
 - [ ] Saved title persists across page reloads
 
 ## US-08 — Filter Todos by Status (verify / enhance if needed)
