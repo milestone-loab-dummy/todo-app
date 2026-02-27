@@ -1,77 +1,112 @@
-# Ralph Tasks — Sprint 1 "It Works"
+# Ralph Tasks — Todo App (All Stories)
 
-## US-01 — Go Backend Scaffold
+## EPIC-01 — Project Foundation & Infrastructure
+
+### US-01 — Go Backend Scaffold
 - [x] Create `backend/` directory with Go module (`go mod init`)
-- [x] Add Gin, GORM, SQLite driver dependencies
-- [x] Scaffold main.go with Gin router, CORS middleware, request logger middleware
-- [ ] Define `Todo` GORM model (ID, Title, Completed, CreatedAt, UpdatedAt)
-- [ ] Auto-migrate `todos.db` on startup
+- [ ] Add Gin and GORM (SQLite) dependencies
 - [ ] Implement `GET /health` returning `{"status":"ok"}`
-- [ ] Server starts on port 8080 (`go run ./...` from `backend/`)
-- [ ] Log method, path, status code, and latency for every request
+- [ ] Auto-migrate `todos.db` on startup via GORM
+- [ ] Add request logging middleware (method, path, status, latency)
+- [ ] Server listens on port 8080 (configurable via env)
 
-## US-02 — React + TypeScript Frontend Scaffold
-- [ ] Create `frontend/` directory with Vite + React + TypeScript template
-- [ ] Configure Tailwind CSS
-- [ ] Proxy `/api` to `http://localhost:8080` in Vite config
-- [ ] App renders "Todo App" title on `http://localhost:3000`
+### US-02 — React + TypeScript Frontend Scaffold
+- [ ] Scaffold `frontend/` with Vite + React + TypeScript
+- [ ] Dev server runs on port 3000
+- [ ] Display "Todo App" title in browser
 - [ ] `npm run build` completes without TypeScript errors
+- [ ] CORS configured on backend to accept requests from frontend origin
 
-## US-03 — Create a Todo
-- [ ] Backend: `POST /todos` — create todo, return 201 with todo object
-- [ ] Backend: validate non-empty title, return 400 if missing/empty
-- [ ] Frontend: input field with Enter key handler
-- [ ] Frontend: ignore submit if input is empty
-- [ ] Frontend: clear input after successful creation
-- [ ] Frontend: new todo appears in list immediately
+## EPIC-02 — Todo CRUD (Core Feature)
 
-## US-04 — List All Todos
-- [ ] Backend: `GET /todos` — return all todos as JSON array
-- [ ] Frontend: fetch todos on mount
-- [ ] Frontend: show loading indicator while fetching
-- [ ] Frontend: show empty state message if no todos
-- [ ] Frontend: each todo shows title and completion checkbox
+### US-03 — Create a Todo
+- [ ] `POST /todos` endpoint returns `201 Created` with todo object
+- [ ] Empty title rejected (no empty todos created)
+- [ ] Frontend: add form with Enter-to-submit
+- [ ] Input clears after successful creation
+- [ ] New todo persists in SQLite DB across restarts
 
-## US-05 — Complete / Uncomplete a Todo
-- [ ] Backend: `PUT /todos/:id` — update completed field, return updated todo
-- [ ] Backend: return 404 if ID not found
-- [ ] Frontend: checkbox toggles completed state
-- [ ] Frontend: completed todos show strikethrough style
-- [ ] Frontend: toggled state persists across page reloads
+### US-04 — List All Todos
+- [ ] `GET /todos` returns all todos as JSON array
+- [ ] Frontend fetches and displays todos on load
+- [ ] Loading indicator shown while fetching
+- [ ] Empty state message shown when no todos exist
+- [ ] Each todo shows title and completion status
 
-## US-06 — Edit a Todo Title
-- [ ] Backend: `PUT /todos/:id` — update title field (same endpoint as toggle)
-- [ ] Frontend: double-click on title enters edit mode (inline input)
-- [ ] Frontend: Enter or blur saves new title
-- [ ] Frontend: Escape cancels edit, restores original title
-- [ ] Frontend: saving empty title cancels edit (no empty todos)
-- [ ] Frontend: saved title persists across reloads
+### US-05 — Complete / Uncomplete a Todo
+- [ ] `PUT /todos/:id` toggles `completed` field
+- [ ] `PUT /todos/:id` returns 404 when ID not found
+- [ ] Frontend checkbox toggles completion with strikethrough style
+- [ ] State persists across page reloads
 
-## US-07 — Delete a Todo
-- [ ] Backend: `DELETE /todos/:id` — delete todo, return 204
-- [ ] Backend: return 404 if ID not found
-- [ ] Frontend: delete button visible on hover only
-- [ ] Frontend: clicking delete removes todo from list immediately
-- [ ] Frontend: deletion persists (todo gone from DB)
+### US-06 — Edit a Todo Title
+- [ ] Double-click todo title enters edit mode (inline input)
+- [ ] Press Enter or blur saves the new title
+- [ ] Press Escape cancels edit and restores original title
+- [ ] Empty title on save cancels edit (no empty todos)
+- [ ] Updated title persists via `PUT /todos/:id`
 
-## US-08 — Filter Todos by Status
-- [ ] Frontend: footer with "All", "Active", "Completed" filter buttons
-- [ ] Frontend: "Active" filter shows only incomplete todos
-- [ ] Frontend: "Completed" filter shows only completed todos
-- [ ] Frontend: "All" shows all todos
-- [ ] Frontend: active filter is visually highlighted
+### US-07 — Delete a Todo
+- [ ] `DELETE /todos/:id` removes todo, returns 404 if not found
+- [ ] Frontend delete button removes todo immediately from list
+- [ ] Delete button only visible on hover
 
-## US-11 — Loading & Error States
-- [ ] Frontend: skeleton loader shown while fetching todos
-- [ ] Frontend: toast notification on any API error
-- [ ] Frontend: toast auto-dismisses after 4 seconds
-- [ ] Frontend: action buttons disabled while request in-flight
+## EPIC-03 — Todo Organization & Filtering
 
-## Validation
-- [ ] `go build ./...` succeeds with no errors from `backend/`
-- [ ] `go vet ./...` passes with no warnings from `backend/`
-- [ ] `go test ./...` passes from `backend/`
-- [ ] `npm run build` succeeds with no TypeScript errors from `frontend/`
-- [ ] Server starts on port 8080 with `go run ./...`
-- [ ] Dev server starts on port 3000 with `npm run dev`
-- [ ] All Sprint 1 acceptance criteria verified
+### US-08 — Filter Todos by Status
+- [ ] Footer filter: All / Active / Completed tabs
+- [ ] "Active" filter shows only incomplete todos
+- [ ] "Completed" filter shows only completed todos
+- [ ] "All" shows everything
+- [ ] Selected filter is visually highlighted
+
+### US-09 — Search Todos
+- [ ] Search input filters todos by keyword (case-insensitive, client-side)
+- [ ] Clearing search restores full list
+- [ ] "No results" message shown when no matches
+
+### US-10 — Bulk Actions
+- [ ] "Mark all complete" button completes all active todos
+- [ ] If all already complete, "Mark all complete" toggles them back to active
+- [ ] "Clear completed" deletes all completed todos
+- [ ] Footer shows "X items left" count (active todos only)
+
+## EPIC-04 — User Experience Polish
+
+### US-11 — Loading & Error States
+- [ ] Skeleton loader shown while fetching todos
+- [ ] Toast notification shown on any API error
+- [ ] Toast auto-dismisses after 4 seconds
+- [ ] Action buttons disabled while request is in-flight
+
+### US-12 — Keyboard Accessibility
+- [ ] Enter in add form creates todo
+- [ ] Escape in edit mode cancels edit
+- [ ] All interactive elements reachable by Tab
+- [ ] Visible focus ring on all interactive elements
+
+### US-13 — Mobile Responsive Layout
+- [ ] No horizontal scroll at 375px viewport
+- [ ] Touch targets ≥ 44px for checkboxes and buttons
+- [ ] Keyboard does not obscure add input on mobile
+
+## EPIC-05 — API Quality & Observability
+
+### US-14 — Input Validation & Error Responses
+- [ ] `POST /todos` without `title` returns `400 {"error":"title is required"}`
+- [ ] Invalid ID format returns `400 Bad Request`
+- [ ] Valid but missing ID returns `404 {"error":"todo not found"}`
+- [ ] Internal errors return `500` (never `200` with error body)
+
+### US-15 — Structured Logging & Health Check
+- [ ] Every HTTP request logs: method, path, status, latency
+- [ ] `GET /health` returns `{"status":"ok","db":"connected"}`
+- [ ] `GET /health` returns `503` when DB is unavailable
+
+## Final Validation
+- [ ] `go build ./...` passes with no errors
+- [ ] `go vet ./...` passes with no warnings
+- [ ] `npm run build` passes with no TypeScript errors
+- [ ] All acceptance criteria verified for all 15 stories
+- [ ] All API endpoints return correct HTTP status codes
+- [ ] No hardcoded URLs — all config via environment variables
