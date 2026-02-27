@@ -17,7 +17,7 @@
 ## US-09 — Search Todos
 - [x] Search input field present in the UI
 - [x] Typing filters todos case-insensitively by title
-- [ ] Clearing search restores full list
+- [x] Clearing search restores full list
 - [ ] "No results" message shown when nothing matches
 
 ## US-10 — Bulk Actions
