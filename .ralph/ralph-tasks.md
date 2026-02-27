@@ -2,7 +2,7 @@
 
 ## US-06 — Edit a Todo Title (verify / enhance if needed)
 - [x] Double-click todo title enters inline edit mode
-- [ ] Enter or blur saves new title via PUT /todos/:id
+- [x] Enter or blur saves new title via PUT /todos/:id
 - [ ] Escape cancels edit and restores original title
 - [ ] Empty title cancels edit silently (no empty todos)
 - [ ] Saved title persists across page reloads
