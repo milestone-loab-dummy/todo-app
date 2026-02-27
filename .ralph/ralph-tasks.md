@@ -15,7 +15,7 @@
 - [x] Active filter button is visually highlighted
 
 ## US-09 — Search Todos
-- [ ] Search input field present in the UI
+- [x] Search input field present in the UI
 - [ ] Typing filters todos case-insensitively by title
 - [ ] Clearing search restores full list
 - [ ] "No results" message shown when nothing matches

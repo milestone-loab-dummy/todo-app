@@ -13,6 +13,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>('all');
   const [newTitle, setNewTitle] = useState('');
+  const [search, setSearch] = useState('');
   const [creating, setCreating] = useState(false);
   const [pendingIds, setPendingIds] = useState<Set<number>>(new Set());
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -131,6 +132,18 @@ export default function App() {
             onKeyDown={handleCreate}
             disabled={creating}
             aria-label="New todo"
+          />
+        </div>
+
+        {/* US-09: Search input */}
+        <div className="search-wrapper">
+          <input
+            className="search-input"
+            type="search"
+            placeholder="Search todos..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            aria-label="Search todos"
           />
         </div>
 
