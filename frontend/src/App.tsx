@@ -117,6 +117,23 @@ export default function App() {
 
   const activeCount = todos.filter((t) => !t.completed).length;
 
+  // US-10: Mark all complete / mark all active
+  async function handleMarkAllComplete() {
+    const allCompleted = todos.every((t) => t.completed);
+    const targetCompleted = !allCompleted;
+    const todosToUpdate = todos.filter((t) => t.completed !== targetCompleted);
+
+    try {
+      const updated = await Promise.all(
+        todosToUpdate.map((t) => updateTodo(t.id, { completed: targetCompleted }))
+      );
+      const updatedMap = new Map(updated.map((t) => [t.id, t]));
+      setTodos((prev) => prev.map((t) => updatedMap.get(t.id) ?? t));
+    } catch {
+      addToast('Failed to update todos.');
+    }
+  }
+
   return (
     <div className="app">
       <header className="app-header">
@@ -206,6 +223,17 @@ export default function App() {
                 </button>
               ))}
             </nav>
+            <div className="bulk-actions">
+              {todos.length > 0 && (
+                <button
+                  className="bulk-btn mark-all-btn"
+                  onClick={handleMarkAllComplete}
+                  aria-label={todos.every((t) => t.completed) ? 'Mark all active' : 'Mark all complete'}
+                >
+                  {todos.every((t) => t.completed) ? 'Mark all active' : 'Mark all complete'}
+                </button>
+              )}
+            </div>
           </footer>
         )}
       </main>
