@@ -24,7 +24,7 @@
 - [x] Footer shows "X items left" count (active todos only)
 - [x] "Mark all complete" button: marks all active todos completed
 - [x] "Mark all complete" toggles: if all already complete, marks all active
-- [ ] "Clear completed" button: deletes all completed todos
+- [x] "Clear completed" button: deletes all completed todos
 - [ ] Bulk actions call the real backend API
 
 ## Final Validation

@@ -117,6 +117,17 @@ export default function App() {
 
   const activeCount = todos.filter((t) => !t.completed).length;
 
+  // US-10: Clear completed todos
+  async function handleClearCompleted() {
+    const completedTodos = todos.filter((t) => t.completed);
+    try {
+      await Promise.all(completedTodos.map((t) => deleteTodo(t.id)));
+      setTodos((prev) => prev.filter((t) => !t.completed));
+    } catch {
+      addToast('Failed to clear completed todos.');
+    }
+  }
+
   // US-10: Mark all complete / mark all active
   async function handleMarkAllComplete() {
     const allCompleted = todos.every((t) => t.completed);
@@ -231,6 +242,15 @@ export default function App() {
                   aria-label={todos.every((t) => t.completed) ? 'Mark all active' : 'Mark all complete'}
                 >
                   {todos.every((t) => t.completed) ? 'Mark all active' : 'Mark all complete'}
+                </button>
+              )}
+              {todos.some((t) => t.completed) && (
+                <button
+                  className="bulk-btn clear-completed-btn"
+                  onClick={handleClearCompleted}
+                  aria-label="Clear completed"
+                >
+                  Clear completed
                 </button>
               )}
             </div>
