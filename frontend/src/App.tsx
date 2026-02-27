@@ -164,7 +164,9 @@ export default function App() {
             </ul>
           ) : filteredTodos.length === 0 ? (
             <p className="empty-state">
-              {filter === 'all'
+              {search.trim()
+                ? `No results for "${search.trim()}".`
+                : filter === 'all'
                 ? 'No todos yet. Add one above!'
                 : filter === 'active'
                 ? 'No active todos.'

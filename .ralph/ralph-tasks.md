@@ -18,7 +18,7 @@
 - [x] Search input field present in the UI
 - [x] Typing filters todos case-insensitively by title
 - [x] Clearing search restores full list
-- [ ] "No results" message shown when nothing matches
+- [x] "No results" message shown when nothing matches
 
 ## US-10 — Bulk Actions
 - [ ] Footer shows "X items left" count (active todos only)
