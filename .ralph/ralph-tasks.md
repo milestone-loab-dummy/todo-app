@@ -4,7 +4,7 @@
 
 ### US-01 — Go Backend Scaffold
 - [x] Create `backend/` directory with Go module (`go mod init`)
-- [ ] Add Gin and GORM (SQLite) dependencies
+- [x] Add Gin and GORM (SQLite) dependencies
 - [ ] Implement `GET /health` returning `{"status":"ok"}`
 - [ ] Auto-migrate `todos.db` on startup via GORM
 - [ ] Add request logging middleware (method, path, status, latency)
