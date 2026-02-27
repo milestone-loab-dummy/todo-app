@@ -2,7 +2,7 @@
 
 ## US-01 — Go Backend Scaffold
 - [x] Create `backend/` directory with Go module (`go mod init`)
-- [ ] Add Gin, GORM, SQLite driver dependencies
+- [x] Add Gin, GORM, SQLite driver dependencies
 - [ ] Scaffold main.go with Gin router, CORS middleware, request logger middleware
 - [ ] Define `Todo` GORM model (ID, Title, Completed, CreatedAt, UpdatedAt)
 - [ ] Auto-migrate `todos.db` on startup
