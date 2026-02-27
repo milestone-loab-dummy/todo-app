@@ -25,7 +25,7 @@
 - [x] "Mark all complete" button: marks all active todos completed
 - [x] "Mark all complete" toggles: if all already complete, marks all active
 - [x] "Clear completed" button: deletes all completed todos
-- [ ] Bulk actions call the real backend API
+- [x] Bulk actions call the real backend API
 
 ## Final Validation
 - [ ] go build ./... from backend/ passes with no errors
