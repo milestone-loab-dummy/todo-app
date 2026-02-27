@@ -29,7 +29,7 @@
 
 ## Final Validation
 - [x] go build ./... from backend/ passes with no errors
-- [ ] go vet ./... from backend/ passes with no errors
+- [x] go vet ./... from backend/ passes with no errors
 - [ ] npm run build from frontend/ passes with zero TypeScript errors
 - [ ] No TypeScript any types without justification
 - [ ] No hardcoded URLs
