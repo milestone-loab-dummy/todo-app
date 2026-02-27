@@ -5,7 +5,7 @@
 - [x] Enter or blur saves new title via PUT /todos/:id
 - [x] Escape cancels edit and restores original title
 - [x] Empty title cancels edit silently (no empty todos)
-- [ ] Saved title persists across page reloads
+- [x] Saved title persists across page reloads
 
 ## US-08 — Filter Todos by Status (verify / enhance if needed)
 - [ ] Footer filter buttons: All | Active | Completed
