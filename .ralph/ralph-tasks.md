@@ -21,7 +21,7 @@
 - [x] "No results" message shown when nothing matches
 
 ## US-10 — Bulk Actions
-- [ ] Footer shows "X items left" count (active todos only)
+- [x] Footer shows "X items left" count (active todos only)
 - [ ] "Mark all complete" button: marks all active todos completed
 - [ ] "Mark all complete" toggles: if all already complete, marks all active
 - [ ] "Clear completed" button: deletes all completed todos
