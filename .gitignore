@@ -1,0 +1,11 @@
+# Backend
+backend/todos.db
+backend/backend
+
+# Frontend
+frontend/.next/
+frontend/node_modules/
+frontend/.env.local
+
+# macOS
+.DS_Store
