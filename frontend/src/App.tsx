@@ -105,10 +105,13 @@ export default function App() {
     }
   }
 
-  // US-08: Filtered list
+  // US-08 + US-09: Filtered + searched list
   const filteredTodos = todos.filter((t) => {
-    if (filter === 'active') return !t.completed;
-    if (filter === 'completed') return t.completed;
+    if (filter === 'active' && t.completed) return false;
+    if (filter === 'completed' && !t.completed) return false;
+    if (search.trim()) {
+      return t.title.toLowerCase().includes(search.trim().toLowerCase());
+    }
     return true;
   });
 

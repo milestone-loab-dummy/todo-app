@@ -16,7 +16,7 @@
 
 ## US-09 — Search Todos
 - [x] Search input field present in the UI
-- [ ] Typing filters todos case-insensitively by title
+- [x] Typing filters todos case-insensitively by title
 - [ ] Clearing search restores full list
 - [ ] "No results" message shown when nothing matches
 
